@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import QuickFixLogo from "../Images/QuickFixLogo.png";
 
 function Navbar() {
   const [search, setSearch] = useState("");
@@ -23,7 +24,7 @@ function Navbar() {
 
       {/* QuickFix Logo */}
       <img
-        src="src/Images/QuickFixLogo.png"
+        src={QuickFixLogo}
         alt="QuickFix Logo"
         className="logo"
         height={70}
