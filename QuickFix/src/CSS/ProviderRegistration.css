@@ -1,0 +1,145 @@
+
+/* Main Container */
+.provider-register-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 35px 20px;
+  background: linear-gradient(135deg, #eaf3ff, #f8fbff);
+  font-family: Arial, sans-serif;
+}
+
+/* Registration Box */
+.provider-register-box {
+  width: 100%;
+  max-width: 750px;
+  background: #ffffff;
+  padding: 35px 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(30, 64, 175, 0.10);
+  border: 1px solid #dbeafe;
+}
+
+.provider-register-box h1 {
+  color: #1769d2;
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.provider-register-box h2 {
+  color: #1e293b;
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.provider-register-box p {
+  color: #64748b;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+/* Form Layout */
+.provider-register-box form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.provider-register-box .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.provider-register-box .form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+/* Labels */
+.provider-register-box label {
+  color: #334155;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/* Inputs and Select */
+.provider-register-box input,
+.provider-register-box select,
+.provider-register-box textarea {
+  width: 100%;
+  padding: 12px 13px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  outline: none;
+  font-size: 14px;
+  color: #334155;
+  background: #ffffff;
+  transition: 0.3s;
+  box-sizing: border-box;
+}
+
+.provider-register-box input:focus,
+.provider-register-box select:focus,
+.provider-register-box textarea:focus {
+  border-color: #1769d2;
+  box-shadow: 0 0 0 3px rgba(23, 105, 210, 0.10);
+}
+
+.provider-register-box input[readonly] {
+  background: #f1f5f9;
+  cursor: not-allowed;
+}
+
+.provider-register-box textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+/* Error Messages */
+.provider-register-box .error {
+  color: #dc2626;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+/* Submit Button */
+.provider-register-box button[type="submit"] {
+  grid-column: 1 / -1;
+  width: 100%;
+  padding: 14px;
+  background: #1769d2;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 8px;
+}
+
+.provider-register-box button[type="submit"]:hover {
+  background: #0d4fa8;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .provider-register-box {
+    padding: 25px 18px;
+  }
+
+  .provider-register-box form {
+    grid-template-columns: 1fr;
+  }
+
+  .provider-register-box .form-group.full-width {
+    grid-column: auto;
+  }
+
+  .provider-register-box button[type="submit"] {
+    grid-column: auto;
+  }
+}

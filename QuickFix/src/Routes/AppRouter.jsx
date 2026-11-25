@@ -1,3 +1,4 @@
+
 import React from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
@@ -5,6 +6,8 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import Login from "../Pages/Public/Login";
 import Register from "../Pages/Public/Register";
+import SelectRole from "../Pages/Public/SelectRole";
+import ProviderRegistration from "../Pages/Public/ProviderRegistration";
 
 // ================= LAYOUTS =================
 
@@ -51,135 +54,146 @@ function AppRouter() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* =================================================
-            PUBLIC ROUTES
-        ================================================= */}
+
+        {/* ================= PUBLIC ROUTES ================= */}
 
         <Route path="/login" element={<Login />} />
 
         <Route path="/register" element={<Register />} />
 
-        {/* =================================================
-            USER SECTION
-        ================================================= */}
+        {/* Role Selection */}
+        <Route path="/select-role" element={<SelectRole />} />
+
+        {/* Provider Registration */}
+        <Route
+          path="/provider-registration"
+          element={<ProviderRegistration />}
+        />
+
+        {/* ================= USER SECTION ================= */}
 
         <Route element={<ProtectedRoute allowedRole="USER" />}>
           <Route element={<UserLayout />}>
-            {/* Dashboard */}
 
             <Route path="/dashboard" element={<Dashboard />} />
 
-            {/* Search Services */}
-
             <Route path="/search-services" element={<SearchService />} />
-
-            {/* My Bookings */}
 
             <Route path="/my-bookings" element={<MyBooking />} />
 
-            {/* Messages */}
-
             <Route path="/messages" element={<Message />} />
-
-            {/* Reviews */}
 
             <Route path="/reviews" element={<Reviews />} />
 
-            {/* Profile */}
-
             <Route path="/profile" element={<Profile />} />
-
-            {/* Settings */}
 
             <Route path="/settings" element={<Setting />} />
 
             <Route path="/help-support" element={<HelpSupport />} />
+
           </Route>
         </Route>
 
-        {/* =================================================
-            SERVICE PROVIDER SECTION
-        ================================================= */}
+        {/* ================= SERVICE PROVIDER SECTION ================= */}
 
         <Route element={<ProtectedRoute allowedRole="SERVICE_PROVIDER" />}>
           <Route element={<ProviderLayout />}>
-            {/* Provider Dashboard */}
 
-            <Route path="/provider/dashboard" element={<ProviderDashboard />} />
+            <Route
+              path="/provider/dashboard"
+              element={<ProviderDashboard />}
+            />
 
-            {/* Provider Bookings */}
+            <Route
+              path="/provider/bookings"
+              element={<ProviderBookings />}
+            />
 
-            <Route path="/provider/bookings" element={<ProviderBookings />} />
+            <Route
+              path="/provider/earnings"
+              element={<ProviderEarnings />}
+            />
 
-            {/* Provider Earnings */}
+            <Route
+              path="/provider/messages"
+              element={<ProviderMessages />}
+            />
 
-            <Route path="/provider/earnings" element={<ProviderEarnings />} />
+            <Route
+              path="/provider/profile"
+              element={<ProviderProfile />}
+            />
 
-            {/* Provider Messages */}
+            <Route
+              path="/provider/settings"
+              element={<ProviderSettings />}
+            />
 
-            <Route path="/provider/messages" element={<ProviderMessages />} />
-
-            {/* Provider Profile */}
-
-            <Route path="/provider/profile" element={<ProviderProfile />} />
-
-            {/* Provider Settings */}
-
-            <Route path="/provider/settings" element={<ProviderSettings />} />
           </Route>
         </Route>
 
-        {/* =================================================
-            ADMIN SECTION
-        ================================================= */}
+        {/* ================= ADMIN SECTION ================= */}
 
         <Route element={<ProtectedRoute allowedRole="ADMIN" />}>
           <Route element={<AdminLayout />}>
-            {/* Admin Dashboard */}
 
-            <Route path="/admin/dashboard" element={<AdminDashboard />} />
+            <Route
+              path="/admin/dashboard"
+              element={<AdminDashboard />}
+            />
 
-            {/* Manage Users */}
+            <Route
+              path="/admin/users"
+              element={<ManageUsers />}
+            />
 
-            <Route path="/admin/users" element={<ManageUsers />} />
+            <Route
+              path="/admin/providers"
+              element={<ManageProviders />}
+            />
 
-            {/* Manage Providers */}
+            <Route
+              path="/admin/bookings"
+              element={<ManageBookings />}
+            />
 
-            <Route path="/admin/providers" element={<ManageProviders />} />
+            <Route
+              path="/admin/services"
+              element={<ManageServices />}
+            />
 
-            {/* Manage Bookings */}
+            <Route
+              path="/admin/messages"
+              element={<AdminMessages />}
+            />
 
-            <Route path="/admin/bookings" element={<ManageBookings />} />
+            <Route
+              path="/admin/profile"
+              element={<AdminProfile />}
+            />
 
-            {/* Manage Services */}
+            <Route
+              path="/admin/settings"
+              element={<AdminSettings />}
+            />
 
-            <Route path="/admin/services" element={<ManageServices />} />
-
-            {/* Admin Messages */}
-
-            <Route path="/admin/messages" element={<AdminMessages />} />
-
-            {/* Admin Profile */}
-
-            <Route path="/admin/profile" element={<AdminProfile />} />
-
-            {/* Admin Settings */}
-
-            <Route path="/admin/settings" element={<AdminSettings />} />
           </Route>
         </Route>
 
-        {/* =================================================
-            HOME
-        ================================================= */}
+        {/* ================= HOME ================= */}
 
-        <Route path="/" element={<Navigate to="/login" replace />} />
+        <Route
+          path="/"
+          element={<Navigate to="/login" replace />}
+        />
 
-        {/* =================================================
-            WRONG URL
-        ================================================= */}
+        {/* ================= WRONG URL ================= */}
 
-        <Route path="*" element={<Navigate to="/login" replace />} />
+        <Route
+          path="*"
+          element={<Navigate to="/login" replace />}
+        />
+
       </Routes>
     </BrowserRouter>
   );
